@@ -1,5 +1,7 @@
 package com.amin.solid.SingleResponsibilityPrinciple.refactored;
 
+import com.amin.solid.SingleResponsibilityPrinciple.refactored.services.ItemPriceCalculationService;
+
 import java.util.List;
 
 public class Main {
@@ -11,15 +13,11 @@ public class Main {
 
         int numberOfPlasticBags = 2;
         int tax = 10;
-
         var itemsPurchased = List.of(book, whiteBoard, markerPen);
 
-        Customer sadman = new Customer("Sadman Sobhan",
-                30,
-                itemsPurchased,
-                numberOfPlasticBags);
-
-        double totalPriceOfItems = sadman.calculatePrice(tax);
+        ItemPriceCalculationService itemPriceCalculationService = new ItemPriceCalculationService();
+        double totalPriceOfItems = itemPriceCalculationService.getTotalItemPrice(itemsPurchased,
+                numberOfPlasticBags, tax);
 
         System.out.println("Total Prices of items purchased : " + totalPriceOfItems);
 
