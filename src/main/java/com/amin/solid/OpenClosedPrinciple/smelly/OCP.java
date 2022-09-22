@@ -1,4 +1,4 @@
-package com.amin.solid.OpenClosedPrinciple;
+package com.amin.solid.OpenClosedPrinciple.smelly;
 
 import com.amin.solid.OpenClosedPrinciple.smelly.SmellyKitchenService;
 import com.amin.solid.OpenClosedPrinciple.smelly.models.FoodItem;
