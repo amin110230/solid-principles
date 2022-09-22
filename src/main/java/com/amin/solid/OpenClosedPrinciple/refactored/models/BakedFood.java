@@ -1,13 +1,12 @@
 package com.amin.solid.OpenClosedPrinciple.refactored.models;
 
-public class FriedFood extends FoodItem {
-    public FriedFood(String name) {
+public class BakedFood extends FoodItem {
+    public BakedFood(String name) {
         super(name);
     }
 
     @Override
     public void prepare() {
-        System.out.println("---> Frying " + this.getName());
+        System.out.println("---> Baking " + this.getName());
     }
 }
-

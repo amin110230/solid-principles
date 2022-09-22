@@ -1,8 +1,6 @@
 package com.amin.solid.OpenClosedPrinciple.refactored;
 
-import com.amin.solid.OpenClosedPrinciple.refactored.models.FoodItem;
-import com.amin.solid.OpenClosedPrinciple.refactored.models.FriedFood;
-import com.amin.solid.OpenClosedPrinciple.refactored.models.GrilledFood;
+import com.amin.solid.OpenClosedPrinciple.refactored.models.*;
 
 import java.util.List;
 
@@ -11,11 +9,13 @@ public class OCP {
 
         List<FoodItem> foodItems = List.of(
                 new GrilledFood("steak"),
-                new FriedFood("chicken")
+                new FriedFood("chicken"),
+                new BakedFood("pasta"),
+                new SauteedFood("mashroom")
         );
 
-        SmellyKitchenService smellyKitchenService = new SmellyKitchenService();
+        DecentKitchenService decentKitchenService = new DecentKitchenService();
         System.out.println("Preparing Items:");
-        smellyKitchenService.prepareItems(foodItems);
+        decentKitchenService.prepareItems(foodItems);
     }
 }
