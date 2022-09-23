@@ -1,9 +1,15 @@
 package com.amin.solid.DependencyInversionPrinciple.refactored.services;
 
+import com.amin.solid.DependencyInversionPrinciple.refactored.services.sms.SmsProvider;
+
 public class SmsService {
-    void sendSms(String text, String phoneNumber) {
-        System.out.println("Sending SMS via GP:");
-        System.out.println("----> Receiver: " + phoneNumber);
-        System.out.println("----> Text:\n" + text);
+    private SmsProvider smsProvider;
+
+    public SmsService(SmsProvider smsProvider) {
+        this.smsProvider = smsProvider;
+    }
+
+    public void sendSms(String text, String phoneNumber) {
+        smsProvider.sendSms(text, phoneNumber);
     }
 }

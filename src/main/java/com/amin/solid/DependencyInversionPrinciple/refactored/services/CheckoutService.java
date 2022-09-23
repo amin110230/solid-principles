@@ -5,8 +5,8 @@ import com.amin.solid.DependencyInversionPrinciple.refactored.models.ShoppingCar
 public class CheckoutService {
     private final SmsService smsService;
 
-    public CheckoutService() {
-        this.smsService = new SmsService();
+    public CheckoutService(SmsService smsService) {
+        this.smsService = smsService;
     }
 
     private void sendConfirmationSms(ShoppingCart shoppingCart) {
