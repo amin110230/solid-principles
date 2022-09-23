@@ -1,10 +1,6 @@
 package com.amin.solid.LiskovSubstitutionPrinciple.refactored.model;
 
-public class TemporaryEmployee extends Employee{
-    @Override
-    public double calculateBonus(float salary) {
-        return salary * .05;
-    }
+public class TemporaryEmployee extends Employee implements EmployeeBonusEligible{
 
     @Override
     public boolean isEligibleForInsurance() {
@@ -13,5 +9,10 @@ public class TemporaryEmployee extends Employee{
 
     public TemporaryEmployee(int id, String name) {
         super(id, name);
+    }
+
+    @Override
+    public double calculateBonus(double salary) {
+        return salary * .05;
     }
 }

@@ -1,6 +1,6 @@
 package com.amin.solid.LiskovSubstitutionPrinciple.refactored.model;
 
-public abstract class Employee {
+public abstract class Employee implements IEmployee {
     private final int id;
     private final String name;
 
@@ -16,6 +16,9 @@ public abstract class Employee {
         this.id = id;
         this.name = name;
     }
-    public abstract double calculateBonus(float salary);
-    public abstract boolean isEligibleForInsurance();
+
+    @Override
+    public String toString() {
+        return "Employee ID: " + this.getId() + " Employee Name : " + this.getName();
+    }
 }

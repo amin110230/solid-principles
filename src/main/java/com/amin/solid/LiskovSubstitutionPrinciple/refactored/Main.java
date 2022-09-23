@@ -1,40 +1,31 @@
 package com.amin.solid.LiskovSubstitutionPrinciple.refactored;
 
-import com.amin.solid.LiskovSubstitutionPrinciple.refactored.model.ContractEmployee;
-import com.amin.solid.LiskovSubstitutionPrinciple.refactored.model.Employee;
-import com.amin.solid.LiskovSubstitutionPrinciple.refactored.model.PermanentEmployee;
-import com.amin.solid.LiskovSubstitutionPrinciple.refactored.model.TemporaryEmployee;
+import com.amin.solid.LiskovSubstitutionPrinciple.refactored.model.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
     private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public static void main(String[] args) {
-        List<Employee> employees = new ArrayList<>();
-        employees.add(new PermanentEmployee(1, "Sadman"));
-        employees.add(new TemporaryEmployee(2, "Amin"));
-        employees.add(new ContractEmployee(3, "xyx"));
+        List<EmployeeBonusEligible> employees = List.of(
+                new PermanentEmployee(1, "Sadman"),
+                new TemporaryEmployee(2, "Amin"));
 
-        for (Employee employee :
+        for (EmployeeBonusEligible employee :
                 employees) {
-            System.out.println("Employee ID: " + employee.getId() + " Employee Name: " + employee.getName()
-                    + " - Employee is eligible for Insurance : " + employee.isEligibleForInsurance());
+            System.out.println(employee.toString() + " Employee Bonus : " + employee.calculateBonus(1000));
         }
 
         System.out.println("--------------------");
-
-        for (Employee employee :
-                employees) {
-            try {
-                System.out.println("Employee ID: " + employee.getId() + " Employee Name: " + employee.getName()
-                        + " Employee Bonus : " + employee.calculateBonus(1000));
-            } catch (UnsupportedOperationException exception) {
-                LOGGER.log(Level.SEVERE, " This employee is not eligible for bonus");
-            }
+        List<IEmployee> iEmployees = List.of(
+                new PermanentEmployee(1, "Sadman"),
+                new TemporaryEmployee(2, "Amin"),
+                new ContractEmployee(3, "xyz"));
+        for (IEmployee iEmployee :
+                iEmployees) {
+            System.out.println(iEmployee.toString() + " Employee is eligible for Insurance : " + iEmployee.isEligibleForInsurance());
         }
     }
 }
