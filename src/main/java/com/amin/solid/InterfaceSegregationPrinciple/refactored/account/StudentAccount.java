@@ -14,8 +14,4 @@ public class StudentAccount extends BaseAccount implements SavingsAccount {
         this.balance += amountInBDT;
     }
 
-    @Override
-    public void creditInternationalAmount(double amountInUSD) {
-        throw new UnsupportedOperationException("International amount transfer is not applicable for student account");
-    }
 }

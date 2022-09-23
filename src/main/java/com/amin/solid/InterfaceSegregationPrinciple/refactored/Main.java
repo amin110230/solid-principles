@@ -25,7 +25,6 @@ public class Main {
         );
 
         studentAccount.creditLocalAmount(100);
-        studentAccount.creditInternationalAmount(10);
 
         System.out.println(studentAccount.getBalance());
     }

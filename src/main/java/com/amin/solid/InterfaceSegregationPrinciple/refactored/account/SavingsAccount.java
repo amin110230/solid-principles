@@ -5,5 +5,4 @@ public interface SavingsAccount {
 
     public void creditLocalAmount(double amountInBDT);
 
-    public void creditInternationalAmount(double amountInUSD);
 }
